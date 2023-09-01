@@ -40,5 +40,34 @@ namespace Elev8WebApp.Controllers
             // If the ModelState is not valid, return back to the form with validation errors
             return View("Index", employeeInfo);
         }
+
+
+        [HttpGet]
+        public IActionResult viewRecords()
+        {
+            try
+            {
+              
+                    using (MyDBContext context = new MyDBContext())
+                    {
+                      var lstEmployees=  context.EmployeeInfo.ToList();
+
+                      ViewBag.lstEmployees = lstEmployees;
+                    }
+
+                   
+                    return View();
+                    
+               
+            }
+            catch (Exception ex)
+            {
+
+
+            }
+
+            // If the ModelState is not valid, return back to the form with validation errors
+            return View("Index");
+        }
     }
 }

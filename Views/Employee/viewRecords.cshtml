@@ -1,0 +1,27 @@
+﻿
+
+@if (ViewBag.lstEmployees != null)
+{
+    <table>
+        <thead>
+            <tr>
+                <th>SN</th>
+                <th>Other Names</th>
+                <th>Surname</th>
+                <th>Date of Employment</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var emp in ViewBag.lstEmployees)
+            {
+                <tr>
+                    <td>@emp.Id</td>
+                    <td>@emp.otherNames</td>
+                    <td>@emp.surName</td>
+                    <td>@emp.DOE.ToShortDateString()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}

@@ -5,7 +5,9 @@ namespace Elev8WebApp.Models
 {
     public class MyDBContext : DbContext
     {
-
+        //Install-Package Microsoft.EntityFrameworkCore.Tools
+        //Add-Migration InitialCreate
+        //Update-Database
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -14,22 +16,12 @@ namespace Elev8WebApp.Models
                 optionsBuilder.UseSqlServer(AppConfig.connString);
             }
         }
-        /* protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-         {
-             if (!optionsBuilder.IsConfigured)
-             {
-                 var configuration = new ConfigurationBuilder()
-                     .SetBasePath(Directory.GetCurrentDirectory())
-                     .AddJsonFile("appsettings.json")
-                     .AddJsonFile("appsettings.Development.json", optional: true)
-                     .Build();
-
-                 optionsBuilder.UseSqlServer(configuration.GetConnectionString("myConnString"));
-             }
-         }*/
+       
+        
         // Define DbSet properties for your entities
         // For example:
         public DbSet<EmployeeInfo> EmployeeInfo { get; set; }
+        public DbSet<EmployeeSalaryInfo> EmployeeSalaryInfo { get; set; }
 
     }
 }
