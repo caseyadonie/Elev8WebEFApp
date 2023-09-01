@@ -1,0 +1,33 @@
+﻿@model EmployeeInfo
+@{
+
+
+    var message = ViewBag.message as string;
+
+}
+
+<form method="post" asp-controller="Employee" asp-action="Save">
+    
+    <p>@ViewBag.message</p>
+    <div class="form-group">
+        <label asp-for="surName" class="control-label">Surname</label>
+        <input asp-for="surName" class="form-control" />
+        <span asp-validation-for="surName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="otherNames" class="control-label">Other Names</label>
+        <input asp-for="otherNames" class="form-control" />
+        <span asp-validation-for="otherNames" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DOE" class="control-label">Date of Employment</label>
+        <input asp-for="DOE" class="form-control" />
+        <span asp-validation-for="DOE" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
